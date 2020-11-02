@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#comment-progress {
+  margin-left: 10px;
+}
+.item-line {
+  display: flex;
+  border: 1px solid black;
+}
+.left-side {
+  width: 50%;
+  height: 600px;
+  overflow: auto;
+}
+.right-side {
+  width: 50%;
+}
+.age {
+  margin-left: 10px;
+}
+.comment-link {
+  margin-left: 10px;
+}
+.cover-comment {
+  display: block;
+}

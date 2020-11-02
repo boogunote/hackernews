@@ -1,0 +1,44 @@
+<div id="cover-container">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    #cover-container {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+    }
+    #comment-progress {
+      margin-left: 10px;
+    }
+    .item-line {
+      display: flex;
+      border: 1px solid black;
+    }
+    .left-side {
+      width: 50%;
+      height: 600px;
+      overflow: auto;
+    }
+    .right-side {
+      width: 50%;
+    }
+    .item-title {
+      margin: 0 10px 0 10px;
+    }
+    .age {
+      margin-left: 10px;
+    }
+    .comment-link {
+      margin-left: 10px;
+    }
+    .comment {
+      display: block;
+    }
+  </style>
+  <button id="close-cover">Close</button><span id="comment-progress"></span>
+  <ul id="item-list" style="background-color:lightgray;"></ul>
+</div>
