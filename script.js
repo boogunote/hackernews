@@ -80,7 +80,7 @@ const getData = async () => {
     }
     if (!commentTree) {
       $('#comment-progress').text(`${commentProgress} exception`)
-      item.comment = 'Exceptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn'
+      item.comment = `<button onclick="reloadComment(${item.id})">Reload Comment</button>`
     } else {
       item.comment = commentTree
     }
@@ -91,6 +91,22 @@ const getData = async () => {
   for (let item of itemList) {
     $('#item-list').append(`<li class="item-line"><div class="left-side" id="${item.id}"><a href="${item.url}">${item.title}</a><span class="age">${item.age}</span><a class="comment-link" href="https://news.ycombinator.com/item?id=${item.id}">comments</a><div class="comment">${item.comment}</div></div><iframe class="right-side" sandbox="allow-same-origin allow-scripts allow-popups allow-forms" src="${item.url}" width="800" height="600"></iframe></li>`)
   }
+}
+
+const reloadComment = async articleId => {
+  $(`#${articleId} .comment`).empty()
+  let commentTree
+  try {
+    commentTree = await getComment(articleId)
+  } catch (e) {
+  }
+  let commentNodeHtml
+  if (commentTree) {
+    commentNodeHtml = `<button onclick="reloadComment(${articleId})">Reload Comment</button>`
+  } else {
+    commentNodeHtml = commentTree
+  }
+  $(`#${articleId} .comment`).append(commentNodeHtml)
 }
 
 const getComment = async articleId => {
