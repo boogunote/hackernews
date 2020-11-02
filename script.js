@@ -80,14 +80,16 @@ const getData = async () => {
     }
     if (!commentTree) {
       $('#comment-progress').text(`${commentProgress} exception`)
+      item.comment = 'Exceptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn'
+    } else {
+      item.comment = commentTree
     }
-    item.comment = commentTree
     commentProgress++
     $('#comment-progress').text(commentProgress+'')
   }
 
   for (let item of itemList) {
-    $('#item-list').append(`<li class="item-line"><div class="left-side" id="${item.id}"><a href="${item.url}">${item.title}</a><span class="age">${item.age}</span><a class="comment" href="https://news.ycombinator.com/item?id=${item.id}">comments</a>${item.comment}</div><iframe class="right-side" sandbox="allow-same-origin allow-scripts allow-popups allow-forms" src="${item.url}" width="800" height="600"></iframe></li>`)
+    $('#item-list').append(`<li class="item-line"><div class="left-side" id="${item.id}"><a href="${item.url}">${item.title}</a><span class="age">${item.age}</span><a class="comment-link" href="https://news.ycombinator.com/item?id=${item.id}">comments</a><div class="comment">${item.comment}</div></div><iframe class="right-side" sandbox="allow-same-origin allow-scripts allow-popups allow-forms" src="${item.url}" width="800" height="600"></iframe></li>`)
   }
 }
 
@@ -116,6 +118,10 @@ const timeout = ms => {
 }
 
 window.onload = () => {
+  pageIndex = parseInt(window.location.hash.replace('#', ''))
+  if (isNaN(pageIndex)) {
+    pageIndex = 1
+  }
   $("#page-index").val(pageIndex)
   getData()
 }
