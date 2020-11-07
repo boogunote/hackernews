@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#xgao-toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#item-list-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: grey;
+  z-index: 999;
+}
+.item-line {
+  display: flex;
+  border: 1px solid black;
+}
+.item-line iframe {
+  width: 100%;
+}
+
+iframe.high {
+  height: 1024px;
+}
+
+iframe.short {
+  height: 512px;
+}
